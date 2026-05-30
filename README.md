@@ -1,0 +1,2 @@
+# webtanan export mobiles
+A simple and practical WordPress plugin for exporting WooCommerce customers’ names and phone numbers.  This plugin helps store managers, marketers, and business owners quickly extract customer contact information from WooCommerce orders and customer records. With just a few clicks, you can generate a clean export file containing customer names and phone numbers for reporting, customer follow-up, SMS marketing, support, or offline usage.
