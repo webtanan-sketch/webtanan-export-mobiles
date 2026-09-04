@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#153e8a" />
+  <title>اینستاگرام گهرفام</title>
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div>
+        <h1 id="pageTitle">اینستاگرام گهرفام</h1>
+        <p id="pageSubtitle">مدیریت محصولات و عملکرد پیج</p>
+      </div>
+      <button id="quickAdd" class="icon-btn" aria-label="ثبت سریع">＋</button>
+    </header>
+
+    <main id="view" class="view"></main>
+
+    <nav class="bottom-nav" aria-label="منوی اصلی">
+      <button data-route="dashboard" class="nav-item active"><span>⌂</span><b>خانه</b></button>
+      <button data-route="products" class="nav-item"><span>▦</span><b>محصولات</b></button>
+      <button data-route="calendar" class="nav-item"><span>▣</span><b>تقویم</b></button>
+      <button data-route="reports" class="nav-item"><span>▤</span><b>گزارش</b></button>
+      <button data-route="settings" class="nav-item"><span>⚙</span><b>تنظیمات</b></button>
+    </nav>
+  </div>
+  <div id="modalRoot"></div>
+  <input id="fallbackImport" type="file" accept="application/json" hidden />
+  <script src="app.js"></script>
+</body>
+</html>
