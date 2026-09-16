@@ -23,12 +23,18 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Prepare Android SDK
+      - name: Check Android SDK
         shell: bash
         run: |
-          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null || true
-          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-35" "build-tools;35.0.0"
-          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --list_installed | grep -E "platforms;android-35|build-tools;35.0.0"
+          test -x "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          if [ ! -d "$ANDROID_HOME/platforms/android-35" ]; then
+            "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-35"
+          fi
+          if [ ! -d "$ANDROID_HOME/build-tools/35.0.0" ]; then
+            "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "build-tools;35.0.0"
+          fi
+          test -d "$ANDROID_HOME/platforms/android-35"
+          test -d "$ANDROID_HOME/build-tools/35.0.0"
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
